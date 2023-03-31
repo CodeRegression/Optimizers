@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<class>
+
+<namespace>NVL_App</namespace>
+<solution>GradDescLib</solution>
+<name>ProblemBase</name>
+<description>The base problem that we are working with</description>
+
+<includes>
+    <include name="vector" namespace="std" local="false" />
+    <include name="iostream" namespace="std" local="false" />
+</includes>
+
+<variables>
+    <variable type="" name="" code="10" />
+</variables>
+
+<constructors>
+
+    <!-- The main constructor -->
+    <constructor type="custom" inline="false">
+        <parameter type="const string&" name="folder" description="The folder that we are dealing with" />
+    </constructor>
+
+</constructors>
+
+<methods>
+
+    <!-- Get the frame based on the index -->
+    <method section="Getter" access="public" return="Frame *" name="GetFrame" description="Retrieve the frame with a given image" inline="false">
+        <parameter type="int" name="index" description="The index of the frame that we want" />
+    </method> 
+
+</methods>
+
+<tests>
+    <test name="" description="" exception="false" />
+</tests> 
+
+</class>
