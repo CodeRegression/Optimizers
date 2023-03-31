@@ -6,10 +6,10 @@
 # Date Created: 2023-03-31
 #--------------------------------------------------------
 
-# Setup include directories
+# Setup includes directories
 include_directories("../" "${LIBRARY_BASE}/NVLib")
 
 # Create Library
-add_library(GradDescLib STATIC
-    ArgUtils.cpp
+add_library (GradDescLib STATIC
+	ArgUtils.cpp
 )

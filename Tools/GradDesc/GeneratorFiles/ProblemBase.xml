@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+
+<class>
+
+<namespace>NVL_App</namespace>
+<solution>GradDescLib</solution>
+<name>ProblemBase</name>
+<description>The base problem that we are working with</description>
+
+<includes>
+    <include name="vector" namespace="std" local="false" />
+    <include name="iostream" namespace="std" local="false" />
+</includes>
+
+<variables>
+    <variable type="vector<double>" name="arguments" code="10" />
+</variables>
+
+<constructors>
+
+    <!-- The main constructor -->
+    <constructor type="auto" inline="true" />
+
+</constructors>
+
+<methods>
+
+    <!-- Retrieve the number of output parameters-->
+    <method section="Problem Attributes" modifiers="virtual" access="public" return="int" name="GetTestCount" description="Retrieve the number of tests performed against the application" inline="true" />
+
+    <!-- Execute the test cases given the provided parameters -->
+    <method section="Evaluation" modifiers="virtgual" access="public" return="void" name="Evaluate" description="Evaluate the given solution to determine how well it is working" inline="false">
+        <parameter type="vector<double>&" name="inputs" description="The list of inputs passed to the application" />
+        <parameter type="vector<double>&" name="errors" description="The errors received after performing the given tests" />
+    </method> 
+
+</methods>
+
+
+</class>
