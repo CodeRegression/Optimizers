@@ -14,22 +14,17 @@
 using namespace std;
 
 #include <minpack.h>
-#include "ProblemBase.h"
+#include "Problems/ProblemBase.h"
 #include "Result.h"
 
 namespace NVL_App
 {
 	class Refiner
 	{
-	private:
-		static ProblemBase * _problem;
 	public:
 		Refiner(ProblemBase * problem);
-		virtual ~Refiner();
 
 		unique_ptr<Result> Solve();
-
-		inline ProblemBase *& GetProblem() { return _problem; }
 	private:
 		static void Callback(int *m, int *n, double *x, double *fvec, int *iflag);
 	};

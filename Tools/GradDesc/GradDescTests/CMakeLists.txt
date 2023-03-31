@@ -26,7 +26,7 @@ add_executable (GradDescTests
 )
 
 # Add link libraries
-target_link_libraries(GradDescTests GradDescLib NVLib ${OpenCV_LIBS} UnitTestLib GTest::Main)
+target_link_libraries(GradDescTests GradDescLib NVLib ${OpenCV_LIBS} UnitTestLib minpack GTest::Main)
 
 # Find the associated unit tests
 gtest_discover_tests(GradDescTests)

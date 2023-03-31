@@ -10,6 +10,12 @@
 using namespace NVL_App;
 
 //--------------------------------------------------
+// Globals
+//--------------------------------------------------
+
+ProblemBase * PROBLEM;
+
+//--------------------------------------------------
 // Constructors and Terminators
 //--------------------------------------------------
 
@@ -19,15 +25,7 @@ using namespace NVL_App;
  */
 Refiner::Refiner(ProblemBase * problem)
 {
-	_problem = problem;
-}
-
-/**
- * @brief Defines the main terminator associated with the application
- */
-Refiner::~Refiner() 
-{
-	delete _problem;
+	PROBLEM = problem;
 }
 
 //--------------------------------------------------
@@ -41,8 +39,8 @@ Refiner::~Refiner()
 unique_ptr<Result> Refiner::Solve()
 {
 	// Setup the number of inputs and outputs
-  	int m = _problem->GetTestCount();
-  	int n = _problem->GetArguments().size();
+  	int m = PROBLEM->GetTestCount();
+  	int n = PROBLEM->GetArguments().size();
 	int lwa = (m * n) + (5 * n) + m;
 
 	// Declare working variables
@@ -50,7 +48,7 @@ unique_ptr<Result> Refiner::Solve()
   	double tol, fnorm, x[n], fvec[m], wa[lwa];
 
 	// Setup the initial guess
-	for (auto i = 0; i < n; i++) x[i] = _problem->GetArguments()[i];
+	for (auto i = 0; i < n; i++) x[i] = PROBLEM->GetArguments()[i];
 
 	// Perform the determination of a result
   	tol = sqrt((dpmpar_)(&one));
@@ -76,6 +74,6 @@ unique_ptr<Result> Refiner::Solve()
 void Refiner::Callback(int *m, int *n, double *x, double *fvec, int *iflag) 
 {
 	auto inputs = vector<double>(x, x + *n); auto errors = vector<double>();
-	_problem->Evaluate(inputs, errors);
+	PROBLEM->Evaluate(inputs, errors);
 	copy(errors.begin(), errors.end(), fvec);
 }

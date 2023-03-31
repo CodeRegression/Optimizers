@@ -20,7 +20,7 @@ namespace NVL_App
 		vector<double> _arguments;
 
 	public:
-		ProblemBase(vector<double>& arguments) : _arguments(arguments) {}
+		ProblemBase(const vector<double>& arguments) : _arguments(arguments) {}
 
 		virtual int GetTestCount() = 0;
 		virtual void Evaluate(vector<double>& inputs, vector<double>& errors) = 0;
