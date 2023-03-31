@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+
+<class>
+
+<namespace>NVL_App</namespace>
+<solution>GradDescLib</solution>
+<name>Result</name>
+<description>The result of the refinement</description>
+
+<includes>
+    <include name="iostream" namespace="std" local="false" />
+</includes>
+
+<variables>
+    <variable type="double" name="error" code="10" />
+    <variable type="vector<double>" name="solution" code="10" />
+</variables>
+
+<constructors>
+
+    <!-- Main Constructor -->
+    <constructor type="auto" inline="true" />
+ 
+ </constructors>
+
+</class>
