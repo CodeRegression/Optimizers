@@ -20,7 +20,7 @@ namespace NVL_App
 		double _error;
 		vector<double> _solution;
 	public:
-		Result(double error, vector<double>& solution) :
+		Result(double error, const vector<double>& solution) :
 			_error(error), _solution(solution) {}
 
 		inline double& GetError() { return _error; }

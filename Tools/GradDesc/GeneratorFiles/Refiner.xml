@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+
+<class>
+
+<namespace>NVL_App</namespace>
+<solution>GradDescLib</solution>
+<name>Refiner</name>
+<description>Add the logic to perform the refinement of parameters</description>
+
+<includes>
+    <include name="iostream" namespace="std" local="false" />
+    <include name="minpack.h" local="false" />
+    <include name="ProblemBase.h" local="true" />
+    <include name="Result.h" local="true" />
+</includes>
+
+<variables>
+    <variable type="ProblemBase *" name="problem" code="10" />
+</variables>
+
+<constructors>
+    <constructor type="custom" inline="false">
+        <parameter type="ProblemBase *" name="problem" description="The problem that we are processing" />
+    </constructor>
+</constructors>
+
+<methods>
+    <method section="Solver" access="public" return="unique_ptr<Result>" name="Solve" description="Add the logic to solve the problem" inline="false" />
+</methods>
+
+<tests>
+    <test name="polynomial_test" description="Add the logic to solve a sequence of polynomials" exception="false" />
+</tests> 
+
+</class>
